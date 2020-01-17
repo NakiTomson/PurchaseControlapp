@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ShopProductList</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_delete_purchased">Delete purchased items</string>
+    <string name="action_show_prices">Show prices</string>
+    <string name="action_sorting">Sorting</string>
+
+    <string name="menu_lists">My lists</string>
+    <string name="menu_basket">Basket</string>
+    <string name="menu_review">Send feedback</string>
+    <string name="menu_share">Recommend app</string>
+    <string name="improve_that_translation">Improve translation</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_settings">Settings</string>
+
+</resources>
