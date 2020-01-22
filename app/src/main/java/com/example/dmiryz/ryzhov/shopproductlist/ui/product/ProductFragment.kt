@@ -5,8 +5,10 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.example.dmiryz.ryzhov.shopproductlist.R
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.product_fragment.*
 
 
 class ProductFragment : Fragment() {
@@ -26,7 +28,8 @@ class ProductFragment : Fragment() {
 
         activity?.fab?.apply {
             setOnClickListener {
-
+                val navController = recycler_list_product.findNavController()
+                navController.navigate(R.id.addProductFragment)
             }
         }
     }

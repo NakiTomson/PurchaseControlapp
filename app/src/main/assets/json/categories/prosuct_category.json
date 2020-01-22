@@ -1,12 +1,19 @@
 {
   "items": [
     {
-      "question_category": "1",
-      "category_name": "Вариант 1"
+      "category_name": "алкогольные напитки",
+      "question_category": 1,
+      "icon": "icons/icon_alcohol.png"
     },
     {
-      "question_category": "2",
-      "category_name": "Вариант 2"
+      "category_name": "аптека",
+      "question_category": 2,
+      "icon": "icons/icon_pharmacy.png"
+    },
+    {
+      "category_name": "газеты,книги,музыка",
+      "question_category": 3,
+      "icon": "icons/icon_newspaper_books_music.png"
     }
   ]
 }

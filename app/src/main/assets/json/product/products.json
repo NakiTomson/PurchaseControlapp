@@ -1,0 +1,83 @@
+{
+
+  "categoryPopular": {
+    "category_name": "Популярные",
+    "question_category": 0,
+    "products": [
+      {
+        "titleElement": "Картофель",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 0
+      },{
+        "titleElement": "Пицца",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 0
+      }
+    ]
+  },
+  "category0": {
+    "category_name": "алкогольные напитки",
+    "question_category": 0,
+    "products": [
+      {
+        "titleElement": "Пиво",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 0
+      },{
+        "titleElement": "Вино",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 0
+      }
+    ]
+  },
+  "category1": {
+    "category_name": "аптека",
+    "question_category": 1,
+    "products": [
+      {
+        "titleElement": "Аспирин",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 1
+      },{
+        "titleElement": "Бинт",
+        "groupId": 1,
+        "count": 0,
+        "bought": false,
+        "countWeight": "",
+        "price": "",
+        "comment": "",
+        "iconGroupProduct": 1
+      }
+    ]
+  }
+}
+
+
+
+
+
