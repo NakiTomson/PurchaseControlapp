@@ -1,4 +1,4 @@
-package com.example.dmiryz.ryzhov.shopproductlist.ui.addProduct
+package com.example.dmiryz.ryzhov.shopproductlist.ui.productSelection.addProduct
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SimpleAdapter
-import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,16 +15,19 @@ import com.example.dmiryz.ryzhov.shopproductlist.R
 import com.example.dmiryz.ryzhov.shopproductlist.core.SimplesAdapter
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.Product
 import com.example.dmiryz.ryzhov.shopproductlist.ui.MainActivity
+import com.example.dmiryz.ryzhov.shopproductlist.ui.product.ProductViewModel
 import kotlinx.android.synthetic.main.add_list_product_fragment.*
-import kotlinx.android.synthetic.main.two_fragment.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
-class AddListProductFragment : Fragment() {
+class AddProductFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AddListProductFragment()
+        fun newInstance() =
+            AddProductFragment()
     }
 
-    private lateinit var viewModel: AddListProductViewModel
+    private lateinit var viewModel: AddProductViewModel
+    private lateinit var viewModelProduct: ProductViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,7 @@ class AddListProductFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val mainActivity = activity as MainActivity
-        viewModel = ViewModelProviders.of(mainActivity).get(AddListProductViewModel::class.java)
+        viewModel = ViewModelProviders.of(mainActivity).get(AddProductViewModel::class.java)
         viewModel.getProducts()
         recyclerViewListProductAdd.layoutManager = LinearLayoutManager(context)
         recyclerViewListProductAdd.addItemDecoration(
@@ -45,9 +47,13 @@ class AddListProductFragment : Fragment() {
                 DividerItemDecoration.VERTICAL
             )
         )
+
+        viewModelProduct = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
         viewModel.productsLists.observe(this, Observer<List<Product>> {
-            recyclerViewListProductAdd.adapter = SimplesAdapter(context = context!!,products = it,flag = 1)
+            recyclerViewListProductAdd.adapter = SimplesAdapter(context = context!!,products = it,flag = 1,productViewModel = viewModelProduct )
         })
+        activity?.fab?.visibility = View.INVISIBLE
+
     }
 
 }

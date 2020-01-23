@@ -1,4 +1,4 @@
-package com.example.dmiryz.ryzhov.shopproductlist.ui.addProduct.childefragments
+package com.example.dmiryz.ryzhov.shopproductlist.ui.productSelection.childefragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,18 +10,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dmiryz.ryzhov.shopproductlist.R
-import com.example.dmiryz.ryzhov.shopproductlist.core.MyListHomeAdapter
 import com.example.dmiryz.ryzhov.shopproductlist.core.SimplesAdapter
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.Product
-import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroupWithProducts
 import com.example.dmiryz.ryzhov.shopproductlist.ui.MainActivity
 import com.example.dmiryz.ryzhov.shopproductlist.ui.product.ProductViewModel
-import kotlinx.android.synthetic.main.fragment_home_list.*
 import kotlinx.android.synthetic.main.one_fragment.*
 
 class FragmentPopular (): Fragment() {
 
     private lateinit var viewModel: ViewModelChilds
+    private lateinit var viewModelProduct: ProductViewModel
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,9 +32,10 @@ class FragmentPopular (): Fragment() {
         val mainActivity = activity as MainActivity
         viewModel = ViewModelProviders.of(mainActivity).get(ViewModelChilds::class.java)
         viewModel.getDateListMostPopularProduct(context!!)
+        viewModelProduct = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
         viewModel.productListMostPopularLiveDate.observe(this, Observer<List<Product>> {
             recycler_popular.addItemDecoration(DividerItemDecoration(recycler_popular.context, DividerItemDecoration.VERTICAL))
-            recycler_popular.adapter = SimplesAdapter(products = it, context = context!!,flag = 1)
+            recycler_popular.adapter = SimplesAdapter(products = it, context = context!!,flag = 1,productViewModel = viewModelProduct)
         })
     }
 

@@ -10,14 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dmiryz.ryzhov.shopproductlist.R
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroup
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroupWithProducts
+import com.example.dmiryz.ryzhov.shopproductlist.ui.home.HomeViewModel
 import com.example.dmiryz.ryzhov.shopproductlist.ui.product.ProductViewModel
 import kotlinx.android.synthetic.main._item_products_group.view.*
 
 class MyListHomeAdapter(
     val items: List<ProductGroupWithProducts>,
     val context: Context,
-    var contactViewModel: ProductViewModel
+    var contactViewModel: ProductViewModel,
+    var homeViewModel: HomeViewModel
 ) : RecyclerView.Adapter<MyListHomeAdapter.MyListHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyListHolder {
         return MyListHolder(
@@ -38,8 +41,10 @@ class MyListHomeAdapter(
         holder.countNeedToBuy.text = product.countNeedBuy.toString()
         holder.countBuyed.text = product.countBuy.toString()
 
+
         holder.rootLayout.setOnClickListener {
             contactViewModel.productGroupWithProducts = groupWithProduct
+//            contactViewModel.productGroupId = product.id
             val navController = it.findNavController()
             navController.navigate(R.id.productFragment)
         }
@@ -60,7 +65,7 @@ class MyListHomeAdapter(
                     true
                 }
                 R.id.action_delete -> {
-
+                    homeViewModel.delete(product = item)
                     true
                 }
                 R.id.action_Share -> {

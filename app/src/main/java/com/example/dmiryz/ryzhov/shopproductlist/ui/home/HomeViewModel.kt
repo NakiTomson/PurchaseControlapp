@@ -35,6 +35,13 @@ class HomeViewModel(app: android.app.Application) : AndroidViewModel(app), Corou
         getProducts()
     }
 
+    fun delete(product: ProductGroup){
+        launch(Dispatchers.Default){
+            groupsDao.delete(product)
+        }
+        getProducts()
+    }
+
     override fun onCleared() {
         super.onCleared()
         job.cancel()

@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/addProductFragment"
-        android:name="com.example.dmiryz.ryzhov.shopproductlist.ui.addProduct.AddProductFragment"
+        android:name="com.example.dmiryz.ryzhov.shopproductlist.ui.productSelection.ProductSelectionFragment"
         android:label="add_product_fragment"
         tools:layout="@layout/add_product_fragment" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/addListProductFragment"
-        android:name="com.example.dmiryz.ryzhov.shopproductlist.ui.addProduct.AddListProductFragment"
+        android:name="com.example.dmiryz.ryzhov.shopproductlist.ui.productSelection.addProduct.AddProductFragment"
         android:label="add_list_product_fragment"
         tools:layout="@layout/add_list_product_fragment" />
 </navigation>

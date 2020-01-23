@@ -14,11 +14,7 @@ import java.io.IOException
 import java.io.InputStream
 
 
-class ProductAdapter(val products: List<Product>,
-                     val context: Context,
-                     var contactViewModel: ProductViewModel
-) :RecyclerView.Adapter<ProductAdapter.ProductHolder>(){
-
+class ProductAdapter(val products: List<Product>, val context: Context, var contactViewModel: ProductViewModel):RecyclerView.Adapter<ProductAdapter.ProductHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         return ProductHolder(LayoutInflater.from(context).inflate(R.layout._item_product,parent,false))
@@ -47,19 +43,5 @@ class ProductAdapter(val products: List<Product>,
         val unitsProduct = itemView.units_weight
         val commentToProducts = itemView.comment
     }
-
-
-//    fun loadImageFromAsset() {
-//        try { // получаем входной поток
-//            val ims: InputStream = context.getAssets().open("icons/house_cleaning.png")
-//            // загружаем как Drawable
-//            val d = Drawable.createFromStream(ims, null)
-//            // выводим картинку в ImageView
-//            banan.setImageDrawable(d)
-//        } catch (ex: IOException) {
-//            return
-//        }
-//    }
-
 
 }

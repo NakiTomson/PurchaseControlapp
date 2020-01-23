@@ -7,7 +7,7 @@ import androidx.room.*
 interface ProductDao {
 
     @Query("SELECT * FROM product WHERE group_id = :groupId")
-    fun getContactsOfGroup(groupId: Int): LiveData<List<Product>>
+    fun getContactsOfGroup(groupId: Int): List<Product>
 
     @Query("SELECT COUNT(id) FROM product WHERE group_id = :groupId")
     fun getCount(groupId: Int): Int
@@ -20,4 +20,13 @@ interface ProductDao {
 
     @Delete
     fun delete(group: Product)
+}
+
+
+fun ProductDao.insertOrUpdate(product: Product) {
+    if (product.id != null) {
+        update(product)
+    } else {
+        insert(product)
+    }
 }

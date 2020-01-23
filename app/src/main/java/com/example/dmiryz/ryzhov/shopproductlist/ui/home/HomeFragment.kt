@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         homeViewModel.products.observe(this, Observer<List<ProductGroupWithProducts>> {
             val mainActivity = activity as MainActivity
             val addConViewModel = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
-            recycler_list_home.adapter = MyListHomeAdapter(it, mainActivity,addConViewModel)
+            recycler_list_home.adapter = MyListHomeAdapter(it, mainActivity,addConViewModel,homeViewModel)
 
             if (it.isEmpty()) {
                 imagePosterTodo.visibility = View.VISIBLE

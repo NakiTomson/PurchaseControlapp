@@ -21,5 +21,39 @@
 
 
 
+    <array name="icons">
+        <item>@drawable/icon_alcohol</item>
+        <item>@drawable/icon_pharmacy</item>
+        <item>@drawable/icon_newspaper_books_music</item>
+        <item>@drawable/icon_ready_dish</item>
+        <item>@drawable/icon_diet_food</item>
+        <item>@drawable/icone_home_and_kitchen</item>
+        <item>@drawable/icon_home_cake</item>
+        <item>@drawable/icon_food_preservation</item>
+        <item>@drawable/icon_frozen_foods</item>
+        <item>@drawable/icon_stationery</item>
+        <item>@drawable/icon_canned_food</item>
+        <item>@drawable/icon_coffee_tea_cocoa</item>
+        <item>@drawable/icon_cereals_pasta</item>
+        <item>@drawable/icon_personal_hygiene</item>
+        <item>@drawable/icon_oils</item>
+        <item>@drawable/icon_milk_produce</item>
+        <item>@drawable/icon_meat_poultry</item>
+        <item>@drawable/icon_drinks</item>
+        <item>@drawable/icon_clothes</item>
+        <item>@drawable/icon_etc</item>
+        <item>@drawable/icon_fish_and_seafood</item>
+        <item>@drawable/icon_sweets_snack_food</item>
+        <item>@drawable/icon_sauces_spices_seasonings</item>
+        <item>@drawable/house_cleaning</item>
+        <item>@drawable/icon_car_care</item>
+        <item>@drawable/icon_baby_care</item>
+        <item>@drawable/icon_pet_care</item>
+        <item>@drawable/icon_fruits_and_vegetables</item>
+        <item>@drawable/icon_bread_and_pastries</item>
+        <item>@drawable/icon_electronics_and_engineering</item>
+    </array>
+
+
 
 </resources>

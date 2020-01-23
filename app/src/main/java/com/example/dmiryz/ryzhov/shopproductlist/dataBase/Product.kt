@@ -20,6 +20,7 @@ class Product(
     var countWeight: String? = null,
     var price: String? = null,
     var comment: String? = null,
-    var iconGroupProduct: Int? = null
+    var iconGroupProduct: Int? = null,
+    var selected: Boolean = false
 ) {
 }

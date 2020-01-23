@@ -1,16 +1,15 @@
-package com.example.dmiryz.ryzhov.shopproductlist.ui.addProduct
+package com.example.dmiryz.ryzhov.shopproductlist.ui.productSelection.addProduct
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.AppDatabase
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.Product
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class AddListProductViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
+class AddProductViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
 
     var productsList: MutableList<Product> = ArrayList()
 
@@ -25,7 +24,6 @@ class AddListProductViewModel(app: Application) : AndroidViewModel(app), Corouti
     private val job: Job = Job()
 
 
-
     fun getProducts(){
         Log.i("TAG", productsList.size.toString()+"in view model")
         launch(Dispatchers.Main) {
@@ -34,6 +32,5 @@ class AddListProductViewModel(app: Application) : AndroidViewModel(app), Corouti
             }
         }
     }
-
 
 }
