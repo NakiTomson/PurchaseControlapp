@@ -20,6 +20,10 @@ interface ProductDao {
 
     @Delete
     fun delete(group: Product)
+
+
+    @Query("DELETE from product WHERE group_id =:id")
+    fun deleteAll(id: Int)
 }
 
 

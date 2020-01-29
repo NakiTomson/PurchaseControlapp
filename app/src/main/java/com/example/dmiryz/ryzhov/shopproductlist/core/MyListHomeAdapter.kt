@@ -44,7 +44,7 @@ class MyListHomeAdapter(
 
         holder.rootLayout.setOnClickListener {
             contactViewModel.productGroupWithProducts = groupWithProduct
-//            contactViewModel.productGroupId = product.id
+            contactViewModel.positionGroup = position
             val navController = it.findNavController()
             navController.navigate(R.id.productFragment)
         }

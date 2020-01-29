@@ -17,4 +17,5 @@ interface ProductGroupDao {
     @Delete
     fun delete(roduct: ProductGroup)
 
+
 }

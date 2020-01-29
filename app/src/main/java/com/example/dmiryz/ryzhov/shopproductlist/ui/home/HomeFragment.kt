@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         recycler_list_home.layoutManager = LinearLayoutManager(context)
-        homeViewModel.getProducts()
+        homeViewModel.getProductsGroup()
 
         homeViewModel.products.observe(this, Observer<List<ProductGroupWithProducts>> {
             val mainActivity = activity as MainActivity

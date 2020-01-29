@@ -9,19 +9,13 @@
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
-        "iconGroupProduct": 0
+        "iconGroupProduct": 100
       },{
         "titleElement": "Пицца",
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
-        "iconGroupProduct": 0
+        "iconGroupProduct": 100
       }
     ]
   },
@@ -34,18 +28,12 @@
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
         "iconGroupProduct": 0
       },{
         "titleElement": "Вино",
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
         "iconGroupProduct": 0
       }
     ]
@@ -59,18 +47,12 @@
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
         "iconGroupProduct": 1
       },{
         "titleElement": "Бинт",
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "countWeight": "",
-        "price": "",
-        "comment": "",
         "iconGroupProduct": 1
       }
     ]

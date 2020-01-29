@@ -9,4 +9,5 @@ class ProductGroupWithProducts {
     var productGroup: ProductGroup? = null
     @Relation(parentColumn = "id", entityColumn = "group_id", entity = Product::class)
     var contacts: List<Product> = listOf()
+
 }

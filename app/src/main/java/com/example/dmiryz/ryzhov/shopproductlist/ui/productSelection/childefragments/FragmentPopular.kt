@@ -31,11 +31,11 @@ class FragmentPopular (): Fragment() {
         recycler_popular.layoutManager = LinearLayoutManager(context)
         val mainActivity = activity as MainActivity
         viewModel = ViewModelProviders.of(mainActivity).get(ViewModelChilds::class.java)
-        viewModel.getDateListMostPopularProduct(context!!)
+        viewModel.getProducts()
         viewModelProduct = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
-        viewModel.productListMostPopularLiveDate.observe(this, Observer<List<Product>> {
+        viewModel.productsListLiveDate.observe(this, Observer<List<Product>> {
             recycler_popular.addItemDecoration(DividerItemDecoration(recycler_popular.context, DividerItemDecoration.VERTICAL))
-            recycler_popular.adapter = SimplesAdapter(products = it, context = context!!,flag = 1,productViewModel = viewModelProduct)
+            recycler_popular.adapter = SimplesAdapter(products = it.filter { it.popular }, context = context!!,flag = 1,productViewModel = viewModelProduct)
         })
     }
 

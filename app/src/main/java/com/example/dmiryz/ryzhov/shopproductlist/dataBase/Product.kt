@@ -11,7 +11,6 @@ import com.google.gson.annotations.SerializedName
 class Product(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
-
     var titleElement: String? = null,
     @ColumnInfo(name = "group_id")
     var groupId: Int? = null,
@@ -21,6 +20,8 @@ class Product(
     var price: String? = null,
     var comment: String? = null,
     var iconGroupProduct: Int? = null,
-    var selected: Boolean = false
+    var selected: Boolean = false,
+    var popular: Boolean = false,
+    var icon:Int? = null
 ) {
 }

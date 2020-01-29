@@ -2,6 +2,7 @@ package com.example.dmiryz.ryzhov.shopproductlist.core
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,27 +15,54 @@ import java.io.IOException
 import java.io.InputStream
 
 
-class ProductAdapter(val products: List<Product>, val context: Context, var contactViewModel: ProductViewModel):RecyclerView.Adapter<ProductAdapter.ProductHolder>(){
+class ProductAdapter() : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+
+    lateinit var products: List<Product>
+    lateinit var context: Context
+    lateinit var contactViewModel: ProductViewModel
+
+    fun setDate(products: List<Product>, context: Context, contactViewModel: ProductViewModel) {
+        this.products = products
+        this.context = context
+        this.contactViewModel = contactViewModel
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
-        return ProductHolder(LayoutInflater.from(context).inflate(R.layout._item_product,parent,false))
+        return ProductHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout._item_product,
+                parent,
+                false
+            )
+        )
     }
+
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
         val item = products[position]
-
         holder.productTitle.text = item.titleElement
         holder.checkBoxBought.isChecked = item.bought
-        holder.iconProduct.setImageResource(R.drawable.baban)
+        holder.iconProduct.setImageResource(item.icon!!)
         holder.costProduct.text = item.price
         holder.countProduct.text = item.count.toString()
         holder.unitsProduct.text = item.countWeight
         holder.commentToProducts.text = item.comment
+        holder.checkBoxBought.setOnClickListener {
+            item.bought = holder.checkBoxBought.isChecked
+            contactViewModel.updateProduct(item)
+        }
+        if (holder.checkBoxBought.isChecked){
+            holder.root.alpha = 0.7F
+//            holder.root.backgroundTintMode =
+        }else{
+            holder.root.alpha = 1F
+        }
     }
 
-    override fun getItemCount(): Int  = products.size
+    override fun getItemCount(): Int = products.size
 
     inner class ProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val root = itemView.root_product
         val productTitle = itemView.title_product
         val checkBoxBought = itemView.checkBox
         val iconProduct = itemView.icon_product
@@ -43,5 +71,4 @@ class ProductAdapter(val products: List<Product>, val context: Context, var cont
         val unitsProduct = itemView.units_weight
         val commentToProducts = itemView.comment
     }
-
 }

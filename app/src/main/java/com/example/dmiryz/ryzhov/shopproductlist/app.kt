@@ -1,5 +1,8 @@
 package com.example.dmiryz.ryzhov.shopproductlist
 
+import android.content.Context
+import java.util.*
+
 class app {
 
     companion object{
@@ -20,9 +23,7 @@ class app {
         const val COMMENT = "comment"
         const val GROUP_PRODUCT = "iconGroupProduct"
 
-        //array
-
-
+        var groupId:Int = 0
         const val PRODUCTS = "products"
 
     }

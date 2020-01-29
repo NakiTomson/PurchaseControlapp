@@ -2,8 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="5dp"
+    android:layout_margin="1dp"
     android:layout_height="50dp"
+    android:id="@+id/root_product"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -27,12 +28,11 @@
             android:fontFamily="sans-serif-medium"
             android:text="Пиво"
             android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintBottom_toTopOf="@+id/comment"
             app:layout_constraintEnd_toStartOf="@+id/view_line"
             app:layout_constraintHorizontal_bias="0.102"
             app:layout_constraintStart_toEndOf="@+id/checkBox"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.866" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/icon_product"
@@ -104,13 +104,12 @@
             android:id="@+id/comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Плохое пиво"
             android:textSize="10dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/title_product"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75" />
+            tools:layout_editor_absoluteX="75dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

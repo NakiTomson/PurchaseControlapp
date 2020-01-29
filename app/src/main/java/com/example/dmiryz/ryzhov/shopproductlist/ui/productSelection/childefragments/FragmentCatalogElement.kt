@@ -36,19 +36,18 @@ class FragmentCatalogElement() : Fragment() {
         productList.clear()
         val mainActivity = activity as MainActivity
         viewModel = ViewModelProviders.of(mainActivity).get(ViewModelChilds::class.java)
-        viewModel.getDateListMostPopularProduct(context!!)
         val addConViewModel =  ViewModelProviders.of(mainActivity).get(AddProductViewModel::class.java)
         recycler_list_catalog_element.layoutManager = LinearLayoutManager(context)
 
-        viewModel.getDateListCategory(context!!)
+        viewModel.getProducts()
+        viewModel.getProductCategory()
 
-        viewModel.productsListLiveDate.observe(this, Observer<MutableList<Product>> {
-            productList = it
+        viewModel.productsListLiveDate.observe(this, Observer<List<Product>> {
+            productList = it as MutableList<Product>
         })
         viewModelProduct = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
-        viewModel.listCategoryLiveDate.observe(this, Observer<MutableList<ProductCategory>> {
-            listCategory = it
-            recycler_list_catalog_element.adapter = SimplesAdapter(it, context!!,productList,addConViewModel!!,flag = 0,productViewModel = viewModelProduct)
+        viewModel.listCategoryLiveDate.observe(this, Observer<List<ProductCategory>> {
+            recycler_list_catalog_element.adapter = SimplesAdapter(it as MutableList<ProductCategory>, context!!,productList,addConViewModel,flag = 0,productViewModel = viewModelProduct)
         })
         recycler_list_catalog_element.addItemDecoration(DividerItemDecoration(recycler_list_catalog_element.context, DividerItemDecoration.VERTICAL))
     }

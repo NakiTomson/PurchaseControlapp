@@ -52,7 +52,9 @@
         <item>@drawable/icon_fruits_and_vegetables</item>
         <item>@drawable/icon_bread_and_pastries</item>
         <item>@drawable/icon_electronics_and_engineering</item>
+        <item>@drawable/most_popular_product</item>
     </array>
+
 
 
 

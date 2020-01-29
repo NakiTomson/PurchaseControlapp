@@ -1,6 +1,7 @@
 package com.example.dmiryz.ryzhov.shopproductlist.core
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,7 @@ class SimplesAdapter(
                 holder.imageAddProduct.setImageResource(item.icon)
                 holder.titleProductAdd.text = item.title
                 holder.rootLayoutItem.setOnClickListener {
+                    Log.i("TAP",products.size.toString())
                     val product = products.filter { it.iconGroupProduct!! == item.category }
                     contactViewModel!!.productsList = product.toMutableList()
                     val navController = it.findNavController()
@@ -55,6 +57,12 @@ class SimplesAdapter(
             1 -> {
                 val item = products[position]
                 holder.titleProductAdd.text = item.titleElement
+                if (item.selected){
+                    holder.imageAddProduct.setImageResource(R.drawable.ic_add_product_selected)
+                    holder.countProduct.text = item.count.toString()
+                    holder.iconProduct.visibility = View.VISIBLE
+                    if (item.count!! >= 2) holder.iconProduct.setImageResource(R.drawable.ic_remove)
+                }
                 holder.rootLayoutItem.setOnClickListener {
                     countCurrent = holder.countProduct.text.toString().toInt()
                     countCurrent++
@@ -66,12 +74,11 @@ class SimplesAdapter(
                     holder.imageAddProduct.setImageResource(R.drawable.ic_add_product_selected)
                     holder.iconProduct.visibility = View.VISIBLE
                     item.count = countCurrent
-                    productViewModel.saveProduct(item)
-
+                    item.selected = true
+                    productViewModel.updateProduct(item)
                 }
                 holder.iconProduct.setOnClickListener {
-                    val animationRevers: Animation =
-                        AnimationUtils.loadAnimation(context, R.anim.rotate_anim_revers)
+                    val animationRevers: Animation = AnimationUtils.loadAnimation(context, R.anim.rotate_anim_revers)
                     holder.imageAddProduct.animation = animationRevers
                     countCurrent = holder.countProduct.text.toString().toInt()
                     countCurrent--
@@ -80,7 +87,9 @@ class SimplesAdapter(
                             holder.iconProduct.visibility = View.GONE
                             holder.imageAddProduct.setImageResource(R.drawable.ic_add_product)
                             holder.countProduct.text = countCurrent.toString()
-                            productViewModel.deleteProduct(item)//TODO
+                            item.selected = false
+                            item.bought = false
+                            productViewModel.updateProduct(item)//TODO
                             return@setOnClickListener
                         }
                         1 -> {
