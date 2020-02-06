@@ -1,9 +1,6 @@
 package com.example.dmiryz.ryzhov.shopproductlist.ui
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,11 +10,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.dmiryz.ryzhov.shopproductlist.R
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
+
+//        val builder = NavOptions.Builder()
+//        val navOptions = builder.setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left).build()
+//        navController.navigate(R.id.action_Share, null, navOptions)
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home,
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
 
@@ -65,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
 
 
 }

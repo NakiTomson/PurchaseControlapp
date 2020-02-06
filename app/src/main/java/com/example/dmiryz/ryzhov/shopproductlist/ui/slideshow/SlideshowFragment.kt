@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import com.example.dmiryz.ryzhov.shopproductlist.R
+
 
 class SlideshowFragment : Fragment() {
 
@@ -28,4 +30,6 @@ class SlideshowFragment : Fragment() {
         })
         return root
     }
+
+
 }

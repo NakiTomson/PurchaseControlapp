@@ -51,7 +51,7 @@ class SimplesAdapter(
                     val product = products.filter { it.iconGroupProduct!! == item.category }
                     contactViewModel!!.productsList = product.toMutableList()
                     val navController = it.findNavController()
-                    navController.navigate(R.id.addListProductFragment)
+                    navController.navigate(R.id.action_addProductFragment_to_addListProductFragment)
                 }
             }
             1 -> {
@@ -102,6 +102,13 @@ class SimplesAdapter(
                     }
                     item.count = countCurrent
                     productViewModel.updateProduct(item)//TODO
+                }
+
+                holder.rootLayoutItem.setOnLongClickListener {
+                    productViewModel.productForEdit = item
+                    val navController = it.findNavController()
+                    navController.navigate(R.id.action_addProductFragment_to_editFragment)
+                    true
                 }
             }
             else -> {

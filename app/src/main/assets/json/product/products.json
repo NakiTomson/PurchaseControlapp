@@ -9,13 +9,13 @@
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "iconGroupProduct": 100
+        "iconGroupProduct": 28
       },{
         "titleElement": "Пицца",
         "groupId": 1,
         "count": 0,
         "bought": false,
-        "iconGroupProduct": 100
+        "iconGroupProduct": 28
       }
     ]
   },
@@ -48,6 +48,7 @@
         "count": 0,
         "bought": false,
         "iconGroupProduct": 1
+
       },{
         "titleElement": "Бинт",
         "groupId": 1,

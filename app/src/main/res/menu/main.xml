@@ -18,9 +18,17 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_edit"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_edit"
+        android:visible="false"
+        app:showAsAction="always"
+        android:title="Edit" />
+    <item
         android:id="@+id/action_cooperative"
         android:orderInCategory="100"
         android:icon="@drawable/ic_cooperative"
         app:showAsAction="always"
         android:title="Cooperative" />
+
 </menu>

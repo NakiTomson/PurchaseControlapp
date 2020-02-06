@@ -10,22 +10,14 @@ import kotlin.coroutines.CoroutineContext
 
 class ProductSelectionViewModel(app:Application) : AndroidViewModel(app), CoroutineScope {
 
-    var productGroupWithProducts: ProductGroupWithProducts? = null
 
-//    var database: AppDatabase = AppDatabase.getDatabase(app)
-//    var contactDao = database.getProductDao()
-    //TODO Получение данных из JSON
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
     private val job: Job = Job()
 
-//    suspend fun requestProducts(): LiveData<List<Product>> {
-//        return withContext(Dispatchers.Default){
-//            contactDao.getContactsOfGroup(productGroupWithProducts!!.productGroup!!.id!!)
-//        }
-//    }
+
 
     override fun onCleared() {
         super.onCleared()

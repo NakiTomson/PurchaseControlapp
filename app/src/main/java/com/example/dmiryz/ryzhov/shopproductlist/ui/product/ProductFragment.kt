@@ -1,20 +1,17 @@
 package com.example.dmiryz.ryzhov.shopproductlist.ui.product
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dmiryz.ryzhov.shopproductlist.R
-import com.example.dmiryz.ryzhov.shopproductlist.app
 import com.example.dmiryz.ryzhov.shopproductlist.app.Companion.groupId
 import com.example.dmiryz.ryzhov.shopproductlist.core.ProductAdapter
+import com.example.dmiryz.ryzhov.shopproductlist.core.ProductDiffUtilCallback
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.Product
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroup
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroupWithProducts
@@ -32,7 +29,7 @@ class ProductFragment : Fragment() {
 
     private lateinit var viewModel: ProductViewModel
     private lateinit var viewModelHome: HomeViewModel
-    private var productAdapter: ProductAdapter = ProductAdapter()
+    private lateinit var productAdapter: ProductAdapter
 
 
     override fun onCreateView(
@@ -51,38 +48,54 @@ class ProductFragment : Fragment() {
         viewModel = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
         viewModelHome = ViewModelProviders.of(mainActivity).get(HomeViewModel::class.java)
         viewModel.getProducts()
+        productAdapter = ProductAdapter()
         recycler_list_product.layoutManager = LinearLayoutManager(context)
         viewModel.products.observe(this, Observer<List<Product>> {
-            val productlistNeedBay:List<Product> = it.filter { it.selected }
-            val productlistBay:List<Product> = it.filter { it.bought }
-            productAdapter.setDate(productlistNeedBay.filter { it?.groupId == groupId }, context!!, viewModel)
+            val productlistNeedBay: List<Product> = it.filter { it.selected }
+            val productlistBay: List<Product> = it.filter { it.bought }
+            productAdapter.setDate(
+                productlistNeedBay.filter { it.groupId == groupId },
+                context!!,
+                viewModel
+            )
             recycler_list_product.adapter = productAdapter
             if (it.isEmpty()) {
                 imageBanan.visibility = View.VISIBLE
                 textStart.visibility = View.VISIBLE
             }
-            val productGroupWithProducts:List<ProductGroupWithProducts> = viewModelHome.get()
-            if(productlistNeedBay.isEmpty()) return@Observer
-            val productGroup:ProductGroup = productGroupWithProducts[viewModel.positionGroup!!].productGroup!!
-
+            val productGroupWithProducts: List<ProductGroupWithProducts> = viewModelHome.get()
+            val productGroup: ProductGroup = productGroupWithProducts[viewModel.positionGroup!!].productGroup!!
             productGroup.countNeedBuy = productlistNeedBay.size
             productGroup.countBuy = productlistBay.size
             viewModelHome.updateProductGroup(productGroup)
+
         })
         activity!!.toolbar.visibility = View.VISIBLE
         activity?.fab?.setImageResource(R.drawable.ic_add)
         activity?.fab?.apply {
             setOnClickListener {
                 val navController = recycler_list_product.findNavController()
-                navController.navigate(R.id.addProductFragment)
+                navController.navigate(R.id.action_productFragment_to_addProductFragment)
             }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.main, menu)
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.action_show_prices ->{
+                showPrice()
+                true
+            }
+            else -> true
+        }
+    }
 
+    private fun showPrice() {
+        productAdapter.setConfig()
+    }
 }

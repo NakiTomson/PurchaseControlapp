@@ -50,7 +50,7 @@ class AddProductFragment : Fragment() {
 
         viewModelProduct = ViewModelProviders.of(mainActivity).get(ProductViewModel::class.java)
         viewModel.productsLists.observe(this, Observer<List<Product>> {
-            recyclerViewListProductAdd.adapter = SimplesAdapter(context = context!!,products = it,flag = 1,productViewModel = viewModelProduct )
+            recyclerViewListProductAdd.adapter = SimplesAdapter(context = context!!,products = it.filter { !it.edited },flag = 1,productViewModel = viewModelProduct )
         })
         activity?.fab?.visibility = View.INVISIBLE
 

@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 
 
 @Entity(tableName = "product")
-class Product(
+data class Product(
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null,
     var titleElement: String? = null,
@@ -22,6 +22,9 @@ class Product(
     var iconGroupProduct: Int? = null,
     var selected: Boolean = false,
     var popular: Boolean = false,
-    var icon:Int? = null
+    var icon:Int? = null,
+    var edited: Boolean = false
 ) {
+
+
 }

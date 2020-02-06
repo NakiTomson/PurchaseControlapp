@@ -36,6 +36,9 @@ class ProductViewModel(app: Application) : AndroidViewModel(app), CoroutineScope
     var listProductMostPopular2: CopyOnWriteArrayList<Product> = CopyOnWriteArrayList()//ConcurrentModificationException
 
 
+    var productForEdit:Product? = null
+
+
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
@@ -64,7 +67,7 @@ class ProductViewModel(app: Application) : AndroidViewModel(app), CoroutineScope
     fun saveProduct(product: Product) {
         launch(Dispatchers.Default) {
             product.groupId = productGroupWithProducts!!.productGroup!!.id
-            productDao.insertOrUpdate(product)
+            productDao.insert(product)
         }
     }
 
@@ -196,4 +199,7 @@ class ProductViewModel(app: Application) : AndroidViewModel(app), CoroutineScope
         }
         return sb.toString()
     }
+
+
+
 }

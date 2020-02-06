@@ -1,5 +1,6 @@
 package com.example.dmiryz.ryzhov.shopproductlist.ui.home
 
+import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.dmiryz.ryzhov.shopproductlist.dataBase.AppDatabase
@@ -9,7 +10,7 @@ import com.example.dmiryz.ryzhov.shopproductlist.dataBase.ProductGroupWithProduc
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class HomeViewModel(app: android.app.Application) : AndroidViewModel(app), CoroutineScope {
+class HomeViewModel(app: Application) : AndroidViewModel(app), CoroutineScope {
 
     var products: MutableLiveData<List<ProductGroupWithProducts>> = MutableLiveData()
     var database: AppDatabase = AppDatabase.getDatabase(app)

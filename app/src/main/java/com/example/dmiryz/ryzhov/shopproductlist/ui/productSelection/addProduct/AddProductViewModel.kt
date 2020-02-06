@@ -17,7 +17,6 @@ class AddProductViewModel(app: Application) : AndroidViewModel(app), CoroutineSc
     var database: AppDatabase = AppDatabase.getDatabase(app)
     var groupsDao = database.getProductDao()
 
-
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 

@@ -24,13 +24,14 @@ interface ProductDao {
 
     @Query("DELETE from product WHERE group_id =:id")
     fun deleteAll(id: Int)
+
 }
 
 
-fun ProductDao.insertOrUpdate(product: Product) {
-    if (product.id != null) {
-        update(product)
-    } else {
-        insert(product)
-    }
-}
+//fun ProductDao.insertOrUpdate(product: Product) {
+//    if (product.id != null) {
+//        update(product)
+//    } else {
+//        insert(product)
+//    }
+//}

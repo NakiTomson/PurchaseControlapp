@@ -25,6 +25,7 @@ class app {
 
         var groupId:Int = 0
         const val PRODUCTS = "products"
+        var showPrice: Boolean = false
 
     }
 }
